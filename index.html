@@ -8,57 +8,44 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body onload="onInit()">
-
-
     <!-- MAIN PAGE / GALLERY -->
-
-
 
     <header class="main-header">
       <div class="main-layout main-header flex space-between align-center">
-      <div class="nav-logo">MEME-GEN</div>
-      <ul class="main-nav flex align-center clean-list">
-        <il><a href="#" onclick="onPageToggle('editor')">Editor</a></il>
-         <il><a href="#" onclick="onPageToggle('gallery')">Gallery</a></il>
-         <il><a onclick="onPageToggle('about')" href="#">About</a></il>
-         <!-- <il data-trans="lang" class="link" onclick="toggleLung()"><a href="#">עברית</a></il> -->
-      </ul>
-      <!-- <div class="btn-menu flex" onclick="toggleMenu()">☰</div> -->
-    </div>
+        <div class="nav-logo">MEME-GEN</div>
+        <ul class="main-nav flex align-center clean-list">
+          <il><a href="#" onclick="onPageToggle('editor')">Editor</a></il>
+          <il><a href="#" onclick="onPageToggle('gallery')">Gallery</a></il>
+          <il><a onclick="onPageToggle('about')" href="#">About</a></il>
+          <!-- <il data-trans="lang" class="link" onclick="toggleLung()"><a href="#">עברית</a></il> -->
+        </ul>
+        <!-- <div class="btn-menu flex" onclick="toggleMenu()">☰</div> -->
+      </div>
     </header>
 
+    <section class="main-gallery">
+      <h2 class="main-layout flex align-center">
+        Select a meme you would like to edit
+      </h2>
+      <div class="galley-grid main-layout flex flex-wrap align-center">
+        <img class="memes-img" src="img/1.jpg" onclick="openEditor(1)" />
+        <img class="memes-img" src="img/2.jpg" onclick="openEditor(2)" />
+        <img class="memes-img" src="img/3.jpg" onclick="openEditor(3)" />
+        <img class="memes-img" src="img/4.jpg" onclick="openEditor(4)" />
+        <img class="memes-img" src="img/5.jpg" onclick="openEditor(5)" />
+        <img class="memes-img" src="img/6.jpg" onclick="openEditor(6)" />
+      </div>
+    </section>
 
-
-  <section class="main-gallery ">
-    <h2 class="main-layout flex align-center">Select a meme you would like to edit</h2>
-  <div class="galley-grid main-layout flex flex-wrap align-center">
-      <img class="memes-img" src="img/1.jpg" onclick="openEditor(1)">
-      <img class="memes-img" src="img/2.jpg" onclick="openEditor(2)">
-      <img class="memes-img" src="img/3.jpg" onclick="openEditor(3)">
-      <img class="memes-img" src="img/4.jpg" onclick="openEditor(4)">
-      <img class="memes-img" src="img/5.jpg" onclick="openEditor(5)">
-      <img class="memes-img" src="img/6.jpg" onclick="openEditor(6)">
-</div>
-</section>
-
-
-<!-- EDITOER -->
-
-
-
-    <section class="editor hide main-layout">
-      <div class="edit-tools main-layout">
-            <h2 class="header">Meme Editor</h2>
-            
-            <div class="canvas-container">
-              <canvas width="400" height="400" style="outline:1px solid black"></canvas>
-            
-            </div>
-          </div class="edit-tools">
-      
-          <div class="editor-container flex space-between column">
-            <div class="text-container editor-layout flex column"></div>
-          <label for="meme-txt"></label>
+    <!-- EDITOER -->
+    <!-- <label for="meme-txt"></label> -->
+    <div class="editor hide">
+      <!-- <h2 class="header">Meme Editor</h2> -->
+      <div class="box a canvas-container">
+        <canvas width="500" height="500"></canvas>
+      </div>
+      <div class="box b main-layout">
+        <div class="box c text-container flex column">
           <input
             class="meme-text"
             type="text"
@@ -68,77 +55,45 @@
             name="meme-text"
             oninput="getText(this)"
           />
-          <div class="ctrl-btns flex justify-center">
-            <button
-              class="ctrl-btn  switch"
-              onclick="changeLine(event)"
-            >
+        </div>
+        <div class="box d ctrl-btns">
+          <button class="ctrl-btn switched" onclick="changeLine(event)">
             &#8675;&#8673;
-
-            </button>
-            <button
-              class="ctrl-btn  up"
-              onclick="changePosUpDown(event, -5)"
-            >
+          </button>
+          <button class="ctrl-btn up" onclick="changePosUpDown(event, -5)">
             &#8673;
-            </button>
-            <button
-              class="ctrl-btn  down"
-              onclick="changePosUpDown(event, 5)"
-            >
+          </button>
+          <button class="ctrl-btn down" onclick="changePosUpDown(event, 5)">
             &#8675;
-
-            </button>
-            <button
-              class="ctrl-btn right"
-              onclick="changePosSides(event, -5)"
-            >
+          </button>
+          <button class="ctrl-btn right" onclick="changePosSides(event, -5)">
             ->
-            </button>
-            <button
-              class="ctrl-btn  left"
-              onclick="changePosSides(event, 5)"
-            >
-              <-
-            </button>
-          </div>
-          <div class="font-editor">
-            <button
-              class="ctrl-btn bigger"
-              onclick="changeFontSize(event,1)"
-            >
+          </button>
+          <button class="ctrl-btn left" onclick="changePosSides(event, 5)">
+            <-
+          </button>
+          <button class="ctrl-btn add" onclick="addLine()">+</button>
+        </div>
+        <div class="box e font-editor">
+          <button class="ctrl-btn bigger" onclick="changeFontSize(event,1)">
             A+
-            </button>
-            <button
-              class="ctrl-btn bigger"
-              onclick="changeFontSize(event,-1)"
-            >
+          </button>
+          <button class="ctrl-btn smaller" onclick="changeFontSize(event,-1)">
             A-
-
-            </button>
-            <button
-            class="ctrl-btn  add"
-            onclick="addLine()"
-          >
-          +
-
           </button>
         </div>
-          </div>
-      
 
         <button onclick="clearCanvas()">Clear</button>
-        <a href="#" onclick="downloadCanvas(this)" download="myphoto">Download</a>
+        <a href="#" onclick="downloadCanvas(this)" download="myphoto"
+          >Download</a
+        >
       </div>
-  
-  
-              <!-- ABOUT -->
+    </div>
+    <!-- ABOUT -->
 
-
-              <footer class="main-footer">
-                <p>deatles.......</p>
-            
-              </footer>
+    <footer class="main-footer">
+      <p>deatles.......</p>
+    </footer>
     <script src="js/meme.controller.js"></script>
     <script src="js/meme.service.js"></script>
     <script src="js/meme-upload.js"></script>

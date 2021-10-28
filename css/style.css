@@ -9,27 +9,6 @@ body {
   font-size: 1.7rem;
 }
 
-html,
-ul,
-li,
-main,
-canvas,
-footer,
-header,
-section,
-body,
-div,
-span,
-html,
-a,
-img,
-form {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-}
-
 /* LAYOUT */
 .main-layout {
   /* max-width: 1060px; */
@@ -71,20 +50,65 @@ form {
   height: 350px;
 }
 /* EDITOR */
+.editor {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, [col] auto);
+  grid-template-rows: repeat(1, [row] auto);
+  background-color: rgba(255, 255, 255, 0);
+  color: #444;
+}
 
-.canvas {
-  border: 5px solid black;
-  height: auto;
-  width: auto;
+.box {
+  background-color: rgba(68, 68, 68, 0);
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
 }
-canvas {
-  border: 1px solid black;
-  max-width: 450px;
-  max-height: 450px;
+.box .box {
+  background-color: rgba(204, 204, 204, 0);
+  color: #444;
+}
+
+.a {
+  grid-column: col / span 1;
+  grid-row: row;
+}
+
+.b {
+  display: grid;
+  grid-column: col 2 / span 1;
+  grid-row: row 1;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+.c {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+.d {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+/* canvas {
+  grid-column: 1/3;
+  grid-row: 1/2;
+  max-width: 500px;
+  max-height: 500px;
   margin: 10px auto;
+} */
+
+ctrl-btn {
+  font-size: 40px;
 }
-.canvas-container {
-  flex-direction: column;
+
+.meme-text input {
+  border: 1px solid black;
+  background-color: blanchedalmond;
+  font-size: 20px;
 }
 
 /* FOOTER */
@@ -96,16 +120,7 @@ canvas {
   width: 100%;
 }
 
-.ctrl-btn {
-  font-size: 40px;
-}
-
-/* .meme-text input {
-  border: 1px solid black;
-  background-color: blanchedalmond;
-  font-size: 20px;
-} */
-
+.
 /* HELPERS */
 
 .hide {
@@ -114,7 +129,7 @@ canvas {
 
 /* grid */
 
-.grid {
+/* .grid {
   display: grid;
 }
 
@@ -123,7 +138,7 @@ canvas {
 }
 .justify-center {
   justify-content: center;
-}
+} */
 
 /* flex */
 

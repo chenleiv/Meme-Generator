@@ -128,22 +128,22 @@ function downloadCanvas(elLink) {
   elLink.download = 'my-drow';
 }
 
-function getCurrline() {
-  return gMeme;
-}
+// function getCurrline() {
+//   return gMeme;
+// }
 
-function isLineClicked(clickedPos) {
-  const { pos } = gMeme;
-  const distance = Math.sqrt(
-    (pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2
-  );
-  return distance <= gMeme.size;
-}
+// function isLineClicked(clickedPos) {
+//   const { pos } = gMeme;
+//   const distance = Math.sqrt(
+//     (pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2
+//   );
+//   return distance <= gMeme.size;
+// }
 
-function setlineDrag(isDrag) {
-  gMeme.isDrag = isDrag;
-}
-function moveline(dx, dy) {
-  gMeme.pos.x += dx;
-  gMeme.pos.y += dy;
-}
+// function setlineDrag(isDrag) {
+//   gMeme.isDrag = isDrag;
+// }
+// function moveline(dx, dy) {
+//   gMeme.pos.x += dx;
+//   gMeme.pos.y += dy;
+// }
