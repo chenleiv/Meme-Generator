@@ -1,9 +1,11 @@
 'use strict';
-
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
+var gStartPos;
 var gImgs;
 var gMemes = [];
 var gCurrId;
 var gCurrMeme;
+var gCurrLine;
 var gMeme;
 var gIdx = 1;
 var gElCanvas;
@@ -108,15 +110,22 @@ function downloadCanvas(elLink) {
   elLink.download = 'my-drow';
 }
 
-// function addLine() {
-//   getText()
+function getCurrline() {
+  return gMeme;
+}
 
-// drawText(
-//   gMeme.lines[gIdx].txt,
-//   gMeme.lines[gIdx].pos.x,
-//   gMeme.lines[gIdx].pos.y,
-//   gIdx
-// );
-// Updating the Selected line
-// gMeme.selectedLineIdx++;
-// }
+function isLineClicked(clickedPos) {
+  const { pos } = gMeme;
+  const distance = Math.sqrt(
+    (pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2
+  );
+  return distance <= gMeme.size;
+}
+
+function setlineDrag(isDrag) {
+  gMeme.isDrag = isDrag;
+}
+function moveline(dx, dy) {
+  gMeme.pos.x += dx;
+  gMeme.pos.y += dy;
+}
