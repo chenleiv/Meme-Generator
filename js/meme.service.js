@@ -33,22 +33,29 @@ var gImgs = [
 ];
 
 var gMeme = {
-  selectedImgId: 2,
+  selectedImgId: 1,
   selectedLineIdx: 0,
   lines: [
     {
-      txt: 'text here',
+      txt: '',
       size: 40,
       align: 'left',
       color: 'black',
       pos: { x: 130, y: 50 },
     },
     {
-      txt: 'text here',
+      txt: '',
       size: 40,
       align: 'left',
       color: 'black',
       pos: { x: 140, y: 350 },
+    },
+    {
+      txt: '',
+      size: 40,
+      align: 'left',
+      color: 'black',
+      pos: { x: 140, y: 150 },
     },
   ],
 };
@@ -83,9 +90,13 @@ function changePos(ev, val) {
 
 function changeLine(ev) {
   ev.preventDefault();
+  if (gMeme.selectedLineIdx > 1) return;
   if (gMeme.selectedLineIdx === 0) {
     document.querySelector('.meme-text').value = '';
     gMeme.selectedLineIdx = 1;
+  } else if (gMeme.selectedLineIdx === 1) {
+    document.querySelector('.meme-text').value = '';
+    gMeme.selectedLineIdx = 2;
   } else gMeme.selectedLineIdx = 0;
   document.querySelector('.meme-text').value = '';
 }
@@ -96,3 +107,16 @@ function downloadCanvas(elLink) {
   elLink.href = data;
   elLink.download = 'my-drow';
 }
+
+// function addLine() {
+//   getText()
+
+// drawText(
+//   gMeme.lines[gIdx].txt,
+//   gMeme.lines[gIdx].pos.x,
+//   gMeme.lines[gIdx].pos.y,
+//   gIdx
+// );
+// Updating the Selected line
+// gMeme.selectedLineIdx++;
+// }

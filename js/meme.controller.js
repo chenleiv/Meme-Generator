@@ -17,6 +17,7 @@ function renderImg(url) {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
     drawText(gMeme.lines[0].txt, gMeme.lines[0].pos.x, gMeme.lines[0].pos.y, 0);
     drawText(gMeme.lines[1].txt, gMeme.lines[1].pos.x, gMeme.lines[1].pos.y, 1);
+    drawText(gMeme.lines[2].txt, gMeme.lines[2].pos.x, gMeme.lines[2].pos.y, 2);
   };
 }
 

@@ -9,9 +9,30 @@ body {
   font-size: 1.7rem;
 }
 
+html,
+ul,
+li,
+main,
+canvas,
+footer,
+header,
+section,
+body,
+div,
+span,
+html,
+a,
+img,
+form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+}
+
 /* LAYOUT */
 .main-layout {
-  max-width: 1060px;
+  /* max-width: 1060px; */
   padding-left: 10%;
   padding-right: 10%;
 }
