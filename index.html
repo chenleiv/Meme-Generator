@@ -78,16 +78,28 @@
             </button>
             <button
               class="ctrl-btn  up"
-              onclick="changePos(event, -5)"
+              onclick="changePosUpDown(event, -5)"
             >
             &#8673;
             </button>
             <button
               class="ctrl-btn  down"
-              onclick="changePos(event, 5)"
+              onclick="changePosUpDown(event, 5)"
             >
             &#8675;
 
+            </button>
+            <button
+              class="ctrl-btn right"
+              onclick="changePosSides(event, -5)"
+            >
+            ->
+            </button>
+            <button
+              class="ctrl-btn  left"
+              onclick="changePosSides(event, 5)"
+            >
+              <-
             </button>
           </div>
           <div class="font-editor">
@@ -106,7 +118,7 @@
             </button>
             <button
             class="ctrl-btn  add"
-            onclick="changeLine(event)"
+            onclick="addLine()"
           >
           +
 

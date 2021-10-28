@@ -84,15 +84,33 @@ function changeFontSize(ev, val) {
   renderImg();
 }
 
-function changePos(ev, val) {
+function changePosUpDown(ev, val) {
   ev.preventDefault();
   gMeme.lines[gMeme.selectedLineIdx].pos.y += val;
+  renderImg();
+}
+function changePosSides(ev, val) {
+  ev.preventDefault();
+  gMeme.lines[gMeme.selectedLineIdx].pos.x += val;
   renderImg();
 }
 
 function changeLine(ev) {
   ev.preventDefault();
-  if (gMeme.selectedLineIdx > 1) return;
+  // var gCurrLine = gMeme.selectedLineIdx
+  if (gMeme.selectedLineIdx === 0) {
+    gMeme.selectedLineIdx = 1;
+    document.querySelector('.meme-text').value = '';
+  } else if (gMeme.selectedLineIdx === 1) {
+    gMeme.selectedLineIdx = 2;
+    // איך אני אומרת ״אם אין 2 אז״
+    document.querySelector('.meme-text').value = '';
+  } else gMeme.selectedLineIdx = 0;
+  document.querySelector('.meme-text').value = '';
+}
+
+function addLine() {
+  if (gMeme.selectedLineIdx > 2) return;
   if (gMeme.selectedLineIdx === 0) {
     document.querySelector('.meme-text').value = '';
     gMeme.selectedLineIdx = 1;
