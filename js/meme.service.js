@@ -1,4 +1,5 @@
 'use strict';
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 var gImgs;
 var gMemes = [];
 var gCurrMeme;
@@ -72,6 +73,11 @@ function getText(input) {
   renderImg();
 }
 
+function getMemeImg() {
+  var img = gImgs.find((img) => img.id === gMeme.selectedImgId);
+  return img;
+}
+
 function changeFontSize(ev, val) {
   ev.preventDefault();
   if (gMeme.lines[gMeme.selectedLineIdx].size >= 60 && val > 0) return;
@@ -126,3 +132,16 @@ function downloadCanvas(elLink) {
 // function getCurrline() {
 //   return gMeme;
 // }
+
+function editText(key, value) {
+  if (gMeme.lines.length === 0) return;
+  const lineIdx = gMeme.selectedLineIdx;
+  gMeme.lines[lineIdx][key] = value;
+}
+
+function clearLine() {
+  if (gMeme.lines.length === 0) return;
+  const lineIdx = gMeme.selectedLineIdx;
+  gMeme.selectedLineIdx = 0;
+  gMeme.lines.splice(lineIdx, 1);
+}

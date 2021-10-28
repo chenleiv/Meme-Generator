@@ -21,6 +21,15 @@ function renderImg(url) {
   };
 }
 
+// function drawImg(id) {
+//   var img = new Image();
+//   img.src = onGetMemeUrl(id);
+//   img.onload = () => {
+//     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+//     drawText();
+//   };
+// }
+
 function openEditor(imgId) {
   console.log(imgId);
   gMeme.selectedImgId = imgId;
@@ -47,4 +56,14 @@ function onPageToggle(page) {
     elCanvas.classList.toggle('hide');
     elGallery.classList.toggle('hide');
   }
+}
+
+function onChangeFillColor(value) {
+  editText('fill', value);
+  renderImg();
+}
+
+function onChangeFillStroke(value) {
+  editText('strokeColor', value);
+  renderImg();
 }

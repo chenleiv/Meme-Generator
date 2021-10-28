@@ -44,34 +44,52 @@
             name="meme-text"
             oninput="getText(this)"
           />
-        </div>
 
-        <div class="box d ctrl-btns">
-          <button class="ctrl-btn switched" onclick="changeLine(event)">
-            &#8675;&#8673;
-          </button>
-          <button class="ctrl-btn up" onclick="changePosUpDown(event, -5)">
-            &#8673;
-          </button>
-          <button class="ctrl-btn down" onclick="changePosUpDown(event, 5)">
-            &#8675;
-          </button>
-          <button class="ctrl-btn right" onclick="changePosSides(event, -5)">
-            <-
-          </button>
-          <button class="ctrl-btn left" onclick="changePosSides(event, 5)">
-            ->
-          </button>
-          <button class="ctrl-btn add" onclick="addLine()">+</button>
+          <div class="ctrl-btns">
+            <button class="ctrl-btn switched" onclick="changeLine(event)">
+              Swich
+            </button>
+            <button class="ctrl-btn up" onclick="changePosUpDown(event, -5)">
+              Up
+            </button>
+            <button class="ctrl-btn down" onclick="changePosUpDown(event, 5)">
+              Down
+            </button>
+            <button class="ctrl-btn right" onclick="changePosSides(event, -5)">
+              <-
+            </button>
+            <button class="ctrl-btn left" onclick="changePosSides(event, 5)">
+              ->
+            </button>
+            <button class="ctrl-btn add" onclick="addLine()">+</button>
+            <button class="ctrl-btn bigger" onclick="changeFontSize(event,1)">
+              A+
+            </button>
+            <button class="ctrl-btn smaller" onclick="changeFontSize(event,-1)">
+              A-
+            </button>
+            <button class="ctrl-btn-fill">
+              <input
+                class="input-color"
+                type="color"
+                oninput="onChangeFillColor(value)"
+              />
+            </button>
+            <button class="ctrl-btn-fill">
+              <input
+                class="input-color"
+                name="fill-color"
+                type="color"
+                oninput="onChangeFillStroke(value)"
+              />
+            </button>
+            <button class="ctrl-btn delet" onclick="onClearText()">
+              Delete
+            </button>
+          </div>
         </div>
-        <div class="box e font-editor">
-          <button class="ctrl-btn bigger" onclick="changeFontSize(event,1)">
-            A+
-          </button>
-          <button class="ctrl-btn smaller" onclick="changeFontSize(event,-1)">
-            A-
-          </button>
-
+        <div class="box d font-editor"></div>
+        <div class="box e">
           <button onclick="clearCanvas()">Clear</button>
           <a href="#" onclick="downloadCanvas(this)" download="myphoto"
             >Download</a
