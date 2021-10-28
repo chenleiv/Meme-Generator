@@ -1,11 +1,7 @@
 'use strict';
-const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
-var gStartPos;
 var gImgs;
 var gMemes = [];
-var gCurrId;
 var gCurrMeme;
-var gCurrLine;
 var gMeme;
 var gIdx = 1;
 var gElCanvas;
@@ -97,7 +93,6 @@ function changePosSides(ev, val) {
 
 function changeLine(ev) {
   ev.preventDefault();
-  // var gCurrLine = gMeme.selectedLineIdx
   if (gMeme.selectedLineIdx === 0) {
     gMeme.selectedLineIdx = 1;
     document.querySelector('.meme-text').value = '';

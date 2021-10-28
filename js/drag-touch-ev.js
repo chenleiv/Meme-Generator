@@ -1,5 +1,7 @@
 'use strict';
 
+// const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
+
 // SERVICE//
 
 // function isLineClicked(clickedPos) {
