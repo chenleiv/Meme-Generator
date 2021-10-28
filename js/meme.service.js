@@ -131,19 +131,3 @@ function downloadCanvas(elLink) {
 // function getCurrline() {
 //   return gMeme;
 // }
-
-// function isLineClicked(clickedPos) {
-//   const { pos } = gMeme;
-//   const distance = Math.sqrt(
-//     (pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2
-//   );
-//   return distance <= gMeme.size;
-// }
-
-// function setlineDrag(isDrag) {
-//   gMeme.isDrag = isDrag;
-// }
-// function moveline(dx, dy) {
-//   gMeme.pos.x += dx;
-//   gMeme.pos.y += dy;
-// }

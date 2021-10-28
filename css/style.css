@@ -110,11 +110,8 @@ ctrl-btn {
 
 /* FOOTER */
 .main-footer {
-  /* position: absolute; */
   background-color: #7f939d;
   color: white;
-  bottom: 0;
-  width: 100%;
 }
 
 /* HELPERS */

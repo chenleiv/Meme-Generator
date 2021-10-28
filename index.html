@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body onload="onInit()">
-    <!-- MAIN PAGE / GALLERY -->
-
     <header class="main-header">
       <div class="main-layout main-header flex space-between align-center">
         <div class="nav-logo">MEME-GEN</div>
@@ -22,6 +20,11 @@
         <!-- <div class="btn-menu flex" onclick="toggleMenu()">☰</div> -->
       </div>
     </header>
+
+    <!-- MAIN PAGE / GALLERY -->
+    <section class="gallery-section">
+      <container class="gallery-container grid-container"> </container>
+    </section>
 
     <!-- EDITOER -->
     <!-- <label for="meme-txt"></label> -->
@@ -42,6 +45,7 @@
             oninput="getText(this)"
           />
         </div>
+
         <div class="box d ctrl-btns">
           <button class="ctrl-btn switched" onclick="changeLine(event)">
             &#8675;&#8673;
@@ -102,8 +106,6 @@
         <img class="memes-img" src="img/17.png" onclick="openEditor(17)" />
         <img class="memes-img" src="img/18.png" onclick="openEditor(18)" />
         <img class="memes-img" src="img/19.png" onclick="openEditor(19)" />
-        <img class="memes-img" src="img/20.png" onclick="openEditor(20)" />
-        <img class="memes-img" src="img/21.png" onclick="openEditor(20)" />
       </div>
     </section>
 
