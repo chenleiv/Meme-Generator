@@ -28,24 +28,30 @@
         Select a meme you would like to edit
       </h2>
       <div class="galley-grid main-layout flex flex-wrap align-center">
-        <img class="memes-img" src="img/1.jpg" onclick="openEditor(1)" />
-        <img class="memes-img" src="img/2.jpg" onclick="openEditor(2)" />
-        <img class="memes-img" src="img/3.jpg" onclick="openEditor(3)" />
-        <img class="memes-img" src="img/4.jpg" onclick="openEditor(4)" />
-        <img class="memes-img" src="img/5.jpg" onclick="openEditor(5)" />
-        <img class="memes-img" src="img/6.jpg" onclick="openEditor(6)" />
+        <img class="memes-img" src="img/1.png" onclick="openEditor(1)" />
+        <img class="memes-img" src="img/2.png" onclick="openEditor(2)" />
+        <img class="memes-img" src="img/3.png" onclick="openEditor(3)" />
+        <img class="memes-img" src="img/4.png" onclick="openEditor(4)" />
+        <img class="memes-img" src="img/5.png" onclick="openEditor(5)" />
+        <img class="memes-img" src="img/6.png" onclick="openEditor(6)" />
+        <img class="memes-img" src="img/7.png" onclick="openEditor(7)" />
+        <img class="memes-img" src="img/8.png" onclick="openEditor(8)" />
+        <img class="memes-img" src="img/9.png" onclick="openEditor(9)" />
+        <img class="memes-img" src="img/10.png" onclick="openEditor(10)" />
+        <img class="memes-img" src="img/11.png" onclick="openEditor(11)" />
+        <img class="memes-img" src="img/12.png" onclick="openEditor(12)" />
       </div>
     </section>
 
     <!-- EDITOER -->
     <!-- <label for="meme-txt"></label> -->
-    <div class="editor hide">
+    <div class="editor main-layout hide">
       <!-- <h2 class="header">Meme Editor</h2> -->
       <div class="box a canvas-container">
-        <canvas width="500" height="500"></canvas>
+        <canvas width="550" height="550"></canvas>
       </div>
       <div class="box b main-layout">
-        <div class="box c text-container flex column">
+        <div class="box c text-container">
           <input
             class="meme-text"
             type="text"
@@ -67,10 +73,10 @@
             &#8675;
           </button>
           <button class="ctrl-btn right" onclick="changePosSides(event, -5)">
-            ->
+            <-
           </button>
           <button class="ctrl-btn left" onclick="changePosSides(event, 5)">
-            <-
+            ->
           </button>
           <button class="ctrl-btn add" onclick="addLine()">+</button>
         </div>
@@ -81,12 +87,12 @@
           <button class="ctrl-btn smaller" onclick="changeFontSize(event,-1)">
             A-
           </button>
-        </div>
 
-        <button onclick="clearCanvas()">Clear</button>
-        <a href="#" onclick="downloadCanvas(this)" download="myphoto"
-          >Download</a
-        >
+          <button onclick="clearCanvas()">Clear</button>
+          <a href="#" onclick="downloadCanvas(this)" download="myphoto"
+            >Download</a
+          >
+        </div>
       </div>
     </div>
     <!-- ABOUT -->

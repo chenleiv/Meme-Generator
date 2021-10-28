@@ -12,7 +12,7 @@ function onInit() {
 
 function renderImg(url) {
   var img = new Image();
-  img.src = `./img/${gMeme.selectedImgId}.jpg`; // url
+  img.src = `./img/${gMeme.selectedImgId}.png`; // url
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
     drawText(gMeme.lines[0].txt, gMeme.lines[0].pos.x, gMeme.lines[0].pos.y, 0);

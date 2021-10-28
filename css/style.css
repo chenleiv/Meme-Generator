@@ -7,6 +7,8 @@
 body {
   margin: 0;
   font-size: 1.7rem;
+  background-color: rgba(31, 33, 33, 0.981);
+  color: rgb(233, 229, 229);
 }
 
 /* LAYOUT */
@@ -19,7 +21,7 @@ body {
 .main-header {
   height: 130px;
   color: #ffffff;
-  background-color: #7f939d;
+  background-color: #a97b7b;
   margin-bottom: 50px;
 }
 
@@ -56,19 +58,19 @@ body {
   grid-template-columns: repeat(2, [col] auto);
   grid-template-rows: repeat(1, [row] auto);
   background-color: rgba(255, 255, 255, 0);
-  color: #444;
+  justify-content: center;
+  text-align: center;
+  gap: 50px;
 }
 
 .box {
-  background-color: rgba(68, 68, 68, 0);
-  color: #fff;
+  background-color: rgb(68, 68, 68);
   border-radius: 5px;
   padding: 20px;
-  font-size: 150%;
+  font-size: 1rem;
 }
 .box .box {
-  background-color: rgba(204, 204, 204, 0);
-  color: #444;
+  background-color: rgba(204, 204, 204, 0.618);
 }
 
 .a {
@@ -79,18 +81,18 @@ body {
 .b {
   display: grid;
   grid-column: col 2 / span 1;
-  grid-row: row 1;
-  grid-gap: 10px;
-  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  grid-template-columns: 500px;
+  grid-template-rows: auto auto;
 }
 .c {
   grid-column: 1 / 2;
-  grid-row: 1;
+  /* grid-row: 1; */
 }
 
 .d {
   grid-column: 1;
-  grid-row: 2;
+  /* grid-row: 2; */
 }
 
 /* canvas {
@@ -105,22 +107,25 @@ ctrl-btn {
   font-size: 40px;
 }
 
-.meme-text input {
-  border: 1px solid black;
-  background-color: blanchedalmond;
+.meme-text {
+  background-color: rgba(255, 255, 255, 0.782);
+  color: black;
   font-size: 20px;
+  height: 3rem;
+  width: 20rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 /* FOOTER */
 .main-footer {
-  /* position: absolute; */
+  position: absolute;
   background-color: #7f939d;
   color: white;
   bottom: 0;
   width: 100%;
 }
 
-.
 /* HELPERS */
 
 .hide {
@@ -129,7 +134,7 @@ ctrl-btn {
 
 /* grid */
 
-/* .grid {
+.grid {
   display: grid;
 }
 
@@ -138,7 +143,7 @@ ctrl-btn {
 }
 .justify-center {
   justify-content: center;
-} */
+}
 
 /* flex */
 
