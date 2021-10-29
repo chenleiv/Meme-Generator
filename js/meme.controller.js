@@ -6,11 +6,24 @@ function onInit() {
   gCtx = gElCanvas.getContext('2d');
   gCtx.fillStyle = 'white';
   gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height);
-
-  renderImg();
+  renderGallery();
+  renderMeme();
 }
 
-function renderImg(url) {
+function renderGallery() {
+  let strHtml = '';
+  const imgs = gImgs;
+  strHtml += imgs
+    .map(
+      (img) =>
+        `<img data-id=${img.id} src='${img.url}' onclick="openEditor(dataset.id)">`
+    )
+    .join('');
+  document.querySelector('.galley-grid').innerHTML = strHtml;
+  console.log('gImgs', gImgs);
+}
+
+function renderMeme(url) {
   var img = new Image();
   img.src = `./img/${gMeme.selectedImgId}.png`; // url
   img.onload = () => {
@@ -35,12 +48,12 @@ function openEditor(imgId) {
   gMeme.selectedImgId = imgId;
   // addListeners();
   onPageToggle();
-  renderImg();
+  renderMeme();
 }
 
 function onPageToggle(page) {
   const elCanvas = document.querySelector('.editor');
-  const elGallery = document.querySelector('.main-gallery');
+  const elGallery = document.querySelector('.galley-grid');
   if (page) {
     switch (page) {
       case 'gallery':
@@ -60,10 +73,10 @@ function onPageToggle(page) {
 
 function onChangeFillColor(value) {
   editText('fill', value);
-  renderImg();
+  renderMeme();
 }
 
 function onChangeFillStroke(value) {
   editText('strokeColor', value);
-  renderImg();
+  renderMeme();
 }

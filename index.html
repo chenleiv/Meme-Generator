@@ -8,24 +8,30 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body onload="onInit()">
-    <header class="main-header">
-      <div class="main-layout main-header flex space-between align-center">
-        <div class="nav-logo">MEME-GEN</div>
-        <ul class="main-nav flex align-center clean-list">
-          <il><a href="#" onclick="onPageToggle('editor')">Editor</a></il>
-          <il><a href="#" onclick="onPageToggle('gallery')">Gallery</a></il>
-          <il><a onclick="onPageToggle('about')" href="#">About</a></il>
-          <!-- <il data-trans="lang" class="link" onclick="toggleLung()"><a href="#">עברית</a></il> -->
-        </ul>
-        <!-- <div class="btn-menu flex" onclick="toggleMenu()">☰</div> -->
-      </div>
+    <header class="main-header flex space-between align-center">
+      <!-- <div class="main-headermain-layout"> -->
+      <div class="nav-logo">MEME-GEN</div>
+      <ul class="main-nav flex align-center clean-list">
+        <il><a href="#" onclick="onPageToggle('editor')">Editor</a></il>
+        <il><a href="#" onclick="onPageToggle('gallery')">Gallery</a></il>
+        <il><a onclick="onPageToggle('about')" href="#">About</a></il>
+        <il
+          ><a data-trans="lang" class="lang" onclick="toggleLung()"
+            >עברית</a
+          ></il
+        >
+      </ul>
+      <!-- <div class="btn-menu flex" onclick="toggleMenu()">☰</div> -->
+      <!-- </div> -->
     </header>
 
     <!-- MAIN PAGE / GALLERY -->
-    <section class="gallery-section">
-      <container class="gallery-container grid-container"> </container>
+    <!-- <section class="main-gallery"> -->
+    <h2 class="main-layout">Select a meme you would like to edit</h2>
+    <section class="galley-grid main-layout">
+      <div div class="gallery-container main-layout"></div>
     </section>
-
+    <!-- </section> -->
     <!-- EDITOER -->
     <!-- <label for="meme-txt"></label> -->
     <div class="editor main-layout hide">
@@ -99,40 +105,13 @@
     </div>
     <!-- ABOUT -->
 
-    <!-- GALLERY -->
-    <section class="main-gallery">
-      <h2 class="main-layout flex align-center">
-        Select a meme you would like to edit
-      </h2>
-      <div class="galley-grid main-layout flex flex-wrap align-center">
-        <img class="memes-img" src="img/1.png" onclick="openEditor(1)" />
-        <img class="memes-img" src="img/2.png" onclick="openEditor(2)" />
-        <img class="memes-img" src="img/3.png" onclick="openEditor(3)" />
-        <img class="memes-img" src="img/4.png" onclick="openEditor(4)" />
-        <img class="memes-img" src="img/5.png" onclick="openEditor(5)" />
-        <img class="memes-img" src="img/6.png" onclick="openEditor(6)" />
-        <img class="memes-img" src="img/7.png" onclick="openEditor(7)" />
-        <img class="memes-img" src="img/8.png" onclick="openEditor(8)" />
-        <img class="memes-img" src="img/9.png" onclick="openEditor(9)" />
-        <img class="memes-img" src="img/10.png" onclick="openEditor(10)" />
-        <img class="memes-img" src="img/11.png" onclick="openEditor(11)" />
-        <img class="memes-img" src="img/12.png" onclick="openEditor(12)" />
-        <img class="memes-img" src="img/13.png" onclick="openEditor(13)" />
-        <img class="memes-img" src="img/14.png" onclick="openEditor(14)" />
-        <img class="memes-img" src="img/15.png" onclick="openEditor(15)" />
-        <img class="memes-img" src="img/16.png" onclick="openEditor(16)" />
-        <img class="memes-img" src="img/17.png" onclick="openEditor(17)" />
-        <img class="memes-img" src="img/18.png" onclick="openEditor(18)" />
-        <img class="memes-img" src="img/19.png" onclick="openEditor(19)" />
-      </div>
-    </section>
-
     <!-- FOOTER -->
     <footer class="main-footer">
       <p>Chen Leiv</p>
     </footer>
     <script src="js/meme.controller.js"></script>
-    <script src="js/meme.service.js"></script>
-    <script src="js/meme-upload.js"></script>
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/services/gallery.service.js"></script>
+    <script src="js/services/utils.service.js"></script>
   </body>
 </html>

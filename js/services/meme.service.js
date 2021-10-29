@@ -1,35 +1,11 @@
 'use strict';
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
-var gImgs;
 var gMemes = [];
 var gCurrMeme;
 var gMeme;
 var gIdx = 1;
 var gElCanvas;
 var gCtx;
-
-var gImgs = [
-  {
-    id: 1,
-    url: 'img/1.jpg',
-    keywords: ['null'],
-  },
-  {
-    id: 2,
-    url: 'img/2.jpg',
-    keywords: ['null'],
-  },
-  {
-    id: 3,
-    url: 'img/3.jpg',
-    keywords: ['null'],
-  },
-  {
-    id: 4,
-    url: 'img/4.jpg',
-    keywords: ['null'],
-  },
-];
 
 var gMeme = {
   selectedImgId: 1,
@@ -70,7 +46,7 @@ function drawText(text, x, y, idx) {
 
 function getText(input) {
   gMeme.lines[gMeme.selectedLineIdx].txt = input.value;
-  renderImg();
+  renderMeme();
 }
 
 function getMemeImg() {
@@ -83,18 +59,18 @@ function changeFontSize(ev, val) {
   if (gMeme.lines[gMeme.selectedLineIdx].size >= 60 && val > 0) return;
   else if (gMeme.lines[gMeme.selectedLineIdx].size <= 20 && val < 0) return;
   gMeme.lines[gMeme.selectedLineIdx].size += val;
-  renderImg();
+  renderMeme();
 }
 
 function changePosUpDown(ev, val) {
   ev.preventDefault();
   gMeme.lines[gMeme.selectedLineIdx].pos.y += val;
-  renderImg();
+  renderMeme();
 }
 function changePosSides(ev, val) {
   ev.preventDefault();
   gMeme.lines[gMeme.selectedLineIdx].pos.x += val;
-  renderImg();
+  renderMeme();
 }
 
 function changeLine(ev) {
