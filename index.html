@@ -21,21 +21,20 @@
           ></il
         >
       </ul>
-      <!-- <div class="btn-menu flex" onclick="toggleMenu()">☰</div> -->
-      <!-- </div> -->
+      <div class="btn-menu onclick="onToggleMenu()">☰</div>
+
     </header>
 
     <!-- MAIN PAGE / GALLERY -->
-    <!-- <section class="main-gallery"> -->
+
     <section class="gallery-container">
       <h2 class="main-layout">Select a meme you would like to edit</h2>
       <div div class="galley-grid gallery-container main-layout"></div>
     </section>
-    <!-- </section> -->
-    <!-- EDITOER -->
-    <!-- <label for="meme-txt"></label> -->
+
+     <!-- EDITOER -->
+
     <div class="editor main-layout hide">
-      <!-- <h2 class="header">Meme Editor</h2> -->
       <div class="box a canvas-container">
         <canvas width="400" height="400"></canvas>
       </div>
@@ -48,7 +47,7 @@
             autocomplete="off"
             placeholder="Write your text here"
             name="meme-text"
-            oninput="getText(this)"
+            oninput="getText(this.value)"
           />
 
           <div class="ctrl-btns">
@@ -86,7 +85,7 @@
                 class="input-color"
                 name="fill-color"
                 type="color"
-                oninput="onChangeFillStroke(value)"
+                oninput="setLineColor(value)"
               />
             </button>
             <button class="ctrl-btn delet" onclick="onClearText()">
@@ -96,7 +95,6 @@
         </div>
         <div class="box d font-editor"></div>
         <div class="box e">
-          <button onclick="clearCanvas()">Clear</button>
           <a href="#" onclick="downloadCanvas(this)" download="myphoto"
             >Download</a
           >

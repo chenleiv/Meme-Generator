@@ -20,7 +20,7 @@ body {
 .main-header {
   height: 60px;
   color: #ffffff;
-  background-color: #a97b7b;
+  background-color: #a97b7bf0;
   padding-left: 5%;
   padding-right: 5%;
   margin-bottom: 20px;
@@ -35,6 +35,9 @@ body {
   padding: 30px;
 }
 
+.btn-menu {
+  display: none;
+}
 /* IMGS */
 h2 {
   font-size: 1.2em;
@@ -187,4 +190,102 @@ img {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+/* Mobile Only */
+
+@media (max-width: 840px) {
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 30vh;
+    flex-direction: column;
+    background-color: #a97b7be5;
+    color: white;
+    width: 50px;
+    transform: translateX(100%);
+    transition: transform 0.6s, box-shadow 0.6s;
+  }
+
+  .dropdown {
+    color: black;
+    align-self: baseline;
+  }
+
+  body.menu-open .main-nav {
+    transform: translateX(0);
+    box-shadow: -2px -2px 20px rgba(0, 0, 0, 0.25);
+  }
+  .main-nav {
+    display: block;
+  }
+  .main-nav a {
+    font-size: 20px;
+    display: flex;
+    padding: 20px 20px;
+    align-items: center;
+    border-left: none;
+    transition: background 0.3s;
+  }
+  .main-nav a:hover {
+    background: #292929;
+  }
+}
+
+/* small */
+
+@media (min-width: 640px) {
+  .main-layout {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* medium */
+
+@media (max-width: 840px) {
+  .main-layout {
+    max-width: 740px;
+  }
+
+  .main-content {
+    flex-basis: 50%;
+  }
+
+  .main-content {
+    padding-inline-start: 80px;
+    padding-inline-end: 80px;
+  }
+  .btn-menu {
+    display: block;
+    margin-right: 20px;
+    font-size: 40px;
+  }
+  .card {
+    flex-direction: column;
+    box-shadow: 0 4px 3px 5px rgba(34, 33, 33, 0.446);
+    transition: 0.4s;
+    padding: 20px;
+  }
+  .card:hover {
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2);
+  }
+  .card-btn {
+    display: none;
+  }
+}
+
+/* large */
+
+@media (min-width: 1060px) {
+  .main-layout {
+    max-width: 1020px;
+  }
+  .main-content {
+    padding-inline-start: 80px;
+  }
+  .main-content {
+    padding-inline-end: 80px;
+  }
 }

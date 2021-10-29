@@ -6,8 +6,14 @@ function onInit() {
   gCtx = gElCanvas.getContext('2d');
   gCtx.fillStyle = 'white';
   gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height);
+  onToggleMenu();
+  addListeners();
   renderGallery();
   renderMeme();
+}
+
+function onToggleMenu() {
+  document.body.classList.toggle('menu-open');
 }
 
 function renderGallery() {
@@ -35,18 +41,10 @@ function renderMeme(url) {
 }
 
 // function drawImg(id) {
-//   var img = new Image();
-//   img.src = onGetMemeUrl(id);
-//   img.onload = () => {
-//     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-//     drawText();
-//   };
-// }
 
 function openEditor(imgId) {
   console.log(imgId);
   gMeme.selectedImgId = imgId;
-  // addListeners();
   onPageToggle();
   renderMeme();
 }
@@ -79,4 +77,9 @@ function onChangeFillColor(value) {
 function onChangeFillStroke(value) {
   editText('strokeColor', value);
   renderMeme();
+}
+
+function onClearCanvas() {
+  gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
+  // You may clear part of the canvas
 }
