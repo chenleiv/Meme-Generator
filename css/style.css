@@ -113,9 +113,9 @@ img {
 }
 
 .ctrl-btns button {
-  margin: 15px 10px 15px;
-  height: 3.5rem;
-  width: 4.5rem;
+  margin: 10px 5px 10px;
+  height: 2.5rem;
+  width: 5rem;
   font-size: 1.1em;
 }
 
@@ -135,7 +135,7 @@ img {
 
 /* FOOTER */
 .main-footer {
-  position: absolute;
+  position: relative;
   margin-top: 10px;
   bottom: 0;
   width: 100%;

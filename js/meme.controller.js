@@ -53,7 +53,7 @@ function openEditor(imgId) {
 
 function onPageToggle(page) {
   const elCanvas = document.querySelector('.editor');
-  const elGallery = document.querySelector('.galley-grid');
+  const elGallery = document.querySelector('.gallery-container');
   if (page) {
     switch (page) {
       case 'gallery':
