@@ -74,10 +74,6 @@ function onChangeFillColor(value) {
   renderMeme();
 }
 
-function onChangeFillStroke(value) {
-  editText('strokeColor', value);
-  renderMeme();
-}
 function onChangeFont() {}
 
 function onRemoveText() {

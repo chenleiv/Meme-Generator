@@ -41,10 +41,6 @@ var gMeme = {
   ],
 };
 
-function clearCanvas() {
-  gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
-}
-
 function getCanvasPos() {
   var pos = { x: gElCanvas.width, y: gElCanvas.height };
   return pos;
@@ -104,13 +100,6 @@ function editText(key, value) {
   if (gMeme.lines.length === 0) return;
   const lineIdx = gMeme.selectedLineIdx;
   gMeme.lines[lineIdx][key] = value;
-}
-
-function setLineColor(color) {
-  if (gMeme.selectedLineIdx === null) return;
-  let line = getLine();
-  line.color = color;
-  renderMeme();
 }
 
 function changeFontSize(ev, val) {
@@ -205,13 +194,13 @@ function onUp() {
   document.body.style.cursor = 'grab';
 }
 
-function onResizeCanvas() {
-  var elContainer = document.querySelector('.canvas');
-  // Note: changing the canvas dimension this way clears the canvas
-  gElCanvas.width = elContainer.offsetWidth - 20;
-  // Unless needed, better keep height fixed.
-  //   gCanvas.height = elContainer.offsetHeight
-}
+// function onResizeCanvas() {
+//   var elContainer = document.querySelector('.canvas');
+//   // Note: changing the canvas dimension this way clears the canvas
+//   gElCanvas.width = elContainer.offsetWidth - 20;
+//   // Unless needed, better keep height fixed.
+//   //   gCanvas.height = elContainer.offsetHeight
+// }
 
 function getEvPos(ev) {
   var pos = {

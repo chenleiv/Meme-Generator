@@ -52,13 +52,13 @@
 
           <div class="ctrl-btns">
             <button class="ctrl-btn switched" onclick="changeLine(event)">
-              Swich
+              ↓↑
             </button>
             <button class="ctrl-btn up" onclick="changePosUpDown(event, -5)">
-              Up
+              ↑
             </button>
             <button class="ctrl-btn down" onclick="changePosUpDown(event, 5)">
-              Down
+              ↓
             </button>
             <button class="ctrl-btn right" onclick="changePosSides(event, -5)">
               <-
@@ -86,14 +86,7 @@
               onchange="onChangeFillColor(value)"
             />
           </button>
-          <button class="ctrl-btn-fill">
-            <input
-              class="input-color"
-              name="fill-color"
-              type="color"
-              onchange="setLineColor(value)"
-            />
-          </button>
+         
           <label for:"font-options">font:</label>
           <select  class="font-options" name="font" id:"font" onchange="onChangeFont()">
           <option value="impact">Impact</option>
