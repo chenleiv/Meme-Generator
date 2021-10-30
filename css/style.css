@@ -92,19 +92,20 @@ img:hover {
 /* EDITOR */
 .editor {
   display: grid;
-  grid-gap: 10px;
   grid-template-columns: repeat(2, [col] auto);
   grid-template-rows: repeat(1, [row] auto);
   background-color: rgba(255, 255, 255, 0);
   text-align: center;
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .box {
   background-color: rgb(68, 68, 68);
   border-radius: 5px;
-  padding: 20px;
+  padding: 10px;
   font-size: 1rem;
 }
 .box .box {
@@ -120,7 +121,7 @@ img:hover {
   display: grid;
   grid-column: col 2 / span 1;
   grid-gap: 5px;
-  grid-template-columns: 500px;
+  grid-template-columns: 400px;
   grid-template-rows: auto auto;
 }
 .c {
@@ -134,7 +135,7 @@ img:hover {
 }
 
 .ctrl-btns button {
-  margin: 10px 5px 10px;
+  margin: 10px 15px 10px;
   height: 2rem;
   width: 2rem;
 }
