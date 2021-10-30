@@ -5,6 +5,7 @@ var gMeme;
 var gIdx = 1;
 var gElCanvas;
 var gCtx;
+var gCurrMeme;
 
 var gMeme = {
   selectedImgId: 1,
@@ -47,17 +48,13 @@ function getCanvasPos() {
 }
 //  LINE TEXT //
 
-function drawText() {
-  var meme = getLine();
+function drawText(text, x, y, idx) {
   gCtx.lineWidth = 2;
-  meme.lines.forEach((curr) => {
-    gCtx.strokeStyle = curr.strokeColor;
-    gCtx.fillStyle = curr.color;
-    gCtx.textAlign = curr.align;
-    gCtx.font = `${curr.size}px ${curr.font}`;
-    gCtx.fillText(curr.txt.toUpperCase(), curr.pos.x, curr.pos.y);
-    gCtx.strokeText(curr.txt.toUpperCase(), curr.pos.x, curr.pos.y);
-  });
+  gCtx.strokeStyle = 'black';
+  gCtx.fillStyle = 'white';
+  gCtx.font = `${gMeme.lines[idx].size}px impact`;
+  gCtx.fillText(text, x, y);
+  gCtx.strokeText(text, x, y);
 }
 
 function getText(input) {
@@ -71,11 +68,32 @@ function getLine() {
 
 function getTExtRemove() {}
 
+function moveTxtLine() {
+  gCurrMeme.selectedLineIdx++;
+  if (gCurrMeme.selectedLineIdx > gCurrMeme.lines.length - 1) {
+    gCurrMeme.selectedLineIdx = 0;
+  }
+}
+
+// function changeLine() {
+//   var meme = getLine();
+//   if (meme.selectedLineIdx === meme.lines.length - 1) meme.selectedLineIdx = 0;
+//   else meme.selectedLineIdx++;
+//   inputText();
+//   renderMeme();
+// }
+
+// function inputText() {
+//   var meme = getLine();
+//   var input = document.querySelector('.meme-text');
+//   input.value = meme.lines[meme.selectedLineIdx].text;
+// }
+
 function changeLine(ev) {
   ev.preventDefault();
   if (gMeme.selectedLineIdx === 0) {
     gMeme.selectedLineIdx = 1;
-    document.querySelector('.meme-text').value = '';
+    document.querySelector('.meme-text').value = text;
   } else if (gMeme.selectedLineIdx === 1) {
     gMeme.selectedLineIdx = 2;
     // איך אני אומרת ״אם אין 2 אז״

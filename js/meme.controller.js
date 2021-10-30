@@ -6,11 +6,13 @@ function onInit() {
   gCtx = gElCanvas.getContext('2d');
   gCtx.fillStyle = 'white';
   gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height);
-
+  doTrans();
   addListeners();
   renderGallery();
   renderMeme();
 }
+
+//
 
 function onToggleMenu() {
   document.body.classList.toggle('menu-open');

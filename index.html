@@ -13,11 +13,10 @@
     <header class="main-header main-layout flex space-between align-center">
       <div class="nav-logo">MEME-GEN</div>
       <ul class="main-nav main-layout flex align-center clean-list">
-        <il><a href="#" onclick="onPageToggle('editor')">Editor</a></il>
-        <il><a href="#" onclick="onPageToggle('gallery')">Gallery</a></il>
-        <il><a onclick="onPageToggle('about')" href="#">About</a></il>
+        <il><a data-trans="edit" href="#" onclick="onPageToggle('editor')">Editor</a></il>
+        <il><a data-trans="galerry" href="#" onclick="onPageToggle('gallery')">Gallery</a></il>
         <il
-          ><a data-trans="lang" class="lang" onclick="toggleLung()"
+          ><a data-trans="lang" class="lang" value="he" onclick="onSetLang(this.value)"
             >עברית</a
           ></il
         >
@@ -28,7 +27,7 @@
     <!-- MAIN PAGE / GALLERY -->
 
     <section class="gallery-container main-layout">
-      <h2 class="main-layout">Select a meme you would like to edit</h2>
+      <h2 data-trans="hello-title" class="main-layout">Select a meme you would like to edit</h2>
       <div div class="galley-grid gallery-container main-layout"></div>
     </section>
 
@@ -45,28 +44,30 @@
             type="text"
             value=""
             autocomplete="off"
+            data-trans="text-title"
             placeholder="Write your text here"
             name="meme-text"
             oninput="getText(value)"
           />
 
           <div class="ctrl-btns">
-            <button class="ctrl-btn switched" onclick="changeLine(event)">
-              ↓↑
-            </button>
-            <button class="ctrl-btn up" onclick="changePosUpDown(event, -5)">
-              ↑
-            </button>
-            <button class="ctrl-btn down" onclick="changePosUpDown(event, 5)">
-              ↓
-            </button>
             <button class="ctrl-btn right" onclick="changePosSides(event, -5)">
-              <-
+              &#x21e0;
+              
             </button>
             <button class="ctrl-btn left" onclick="changePosSides(event, 5)">
-              ->
+              &#x21e2;
             </button>
-            <button class="ctrl-btn add" onclick="addLine()">+</button>
+            <button class="ctrl-btn switched" onclick="changeLine(event)">
+              &#x2195;
+            </button>
+            <button class="ctrl-btn add" onclick="addLine()">&#43;</button>
+            <button class="ctrl-btn up" onclick="changePosUpDown(event, -5)">
+              &#x21e1;
+            </button>
+            <button class="ctrl-btn down" onclick="changePosUpDown(event, 5)">
+              &#x21e3;
+            </button>
             <button class="ctrl-btn bigger" onclick="changeFontSize(event,1)">
               A+
             </button>
@@ -81,7 +82,7 @@
             onchange="onChangeFillColor(value)"
             />
           </button>
-          <label for:"font-options">font:</label>
+          <label data-trans="font-title" for:"font-options">Select a font:</label>
           <button class="ctrl-btn font"><select class="font-options" name="font" id:"font" onchange="onChangeFont()">
             <option value="impact">Impact</option>
             <option value="ariel">Ariel</option>
@@ -96,7 +97,7 @@
         <div class="box d font-editor">
         </div>
         <div class="box e">
-          <a class="download" href="#" onclick="downloadCanvas(this)" download="myphoto"
+          <a class="download" data-trans="download-title" href="#" onclick="downloadCanvas(this)" download="myphoto"
             >Download</a
           >
         </div>
@@ -113,5 +114,6 @@
     <script src="js/services/meme.service.js"></script>
     <script src="js/services/utils.service.js"></script>
     <script src="js/meme.controller.js"></script>
+    <script src="js/services/i18n.service.js"></script>
   </body>
 </html>
