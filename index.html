@@ -35,7 +35,7 @@
     <!-- EDITOER -->
 
     <div class="editor main-layout hide">
-      <div class="box a canvas-container">
+      <div class="box a main-layout canvas-container">
         <canvas width="400" height="400"></canvas>
       </div>
       <div class="box b main-layout">
@@ -73,30 +73,30 @@
             <button class="ctrl-btn smaller" onclick="changeFontSize(event,-1)">
               A-
             </button>
-            <button class="ctrl-btn delet" onclick="onRemoveText()">
-              delete
-            </button>
           </div>
-        </div>
-        <div class="box d font-editor">
-          <button class="ctrl-btn-fill">
+          <button class="ctrl-btn fill">
             <input
-              class="input-color"
-              type="color"
-              onchange="onChangeFillColor(value)"
+            class="input-color"
+            type="color"
+            onchange="onChangeFillColor(value)"
             />
           </button>
-         
           <label for:"font-options">font:</label>
-          <select  class="font-options" name="font" id:"font" onchange="onChangeFont()">
-          <option value="impact">Impact</option>
-          <option value="ariel">Ariel</option>
-          <option value="lato">Lato</option>
-          <option value="lato-bold">Lato-Bold</option>
+          <button class="ctrl-btn font"><select class="font-options" name="font" id:"font" onchange="onChangeFont()">
+            <option value="impact">Impact</option>
+            <option value="ariel">Ariel</option>
+            <option value="lato">Lato</option>
+            <option value="lato-bold">Lato-Bold</option>
           </select>
+        </button>
+        <button class="ctrl-btn delete" onclick="onRemoveText()">
+          <img src="/icons/trush.png">
+        </button>
+        </div>
+        <div class="box d font-editor">
         </div>
         <div class="box e">
-          <a href="#" onclick="downloadCanvas(this)" download="myphoto"
+          <a class="download" href="#" onclick="downloadCanvas(this)" download="myphoto"
             >Download</a
           >
         </div>
