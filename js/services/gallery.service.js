@@ -23,3 +23,7 @@ var gImgs = [
   { id: 18, url: 'img/18.png', keywords: ['null'] },
   { id: 19, url: 'img/19.png', keywords: ['null'] },
 ];
+
+function getImg() {
+  return gImgs;
+}

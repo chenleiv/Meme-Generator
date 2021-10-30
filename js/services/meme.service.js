@@ -14,38 +14,54 @@ var gMeme = {
       txt: '',
       size: 40,
       align: 'left',
-      color: 'black',
+      color: 'white',
+      align: 'black',
+      font: 'impact',
       pos: { x: 130, y: 50 },
       isDrag: true,
     },
     {
       txt: '',
       size: 40,
-      align: 'left',
-      color: 'black',
+      color: 'white',
+      align: 'black',
+      font: 'impact',
       pos: { x: 140, y: 350 },
       isDrag: true,
     },
     {
       txt: '',
       size: 40,
-      align: 'left',
-      color: 'black',
+      color: 'white',
+      align: 'black',
+      font: 'impact',
       pos: { x: 140, y: 150 },
       isDrag: true,
     },
   ],
 };
 
+function clearCanvas() {
+  gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
+}
+
+function getCanvasPos() {
+  var pos = { x: gElCanvas.width, y: gElCanvas.height };
+  return pos;
+}
 //  LINE TEXT //
 
-function drawText(text, x, y, idx) {
+function drawText() {
+  var meme = getLine();
   gCtx.lineWidth = 2;
-  gCtx.strokeStyle = 'black';
-  gCtx.fillStyle = 'white';
-  gCtx.font = `${gMeme.lines[idx].size}px impact`;
-  gCtx.fillText(text, x, y);
-  gCtx.strokeText(text, x, y);
+  meme.lines.forEach((curr) => {
+    gCtx.strokeStyle = curr.strokeColor;
+    gCtx.fillStyle = curr.color;
+    gCtx.textAlign = curr.align;
+    gCtx.font = `${curr.size}px ${curr.font}`;
+    gCtx.fillText(curr.txt.toUpperCase(), curr.pos.x, curr.pos.y);
+    gCtx.strokeText(curr.txt.toUpperCase(), curr.pos.x, curr.pos.y);
+  });
 }
 
 function getText(input) {
@@ -56,6 +72,8 @@ function getText(input) {
 function getLine() {
   return gMeme;
 }
+
+function getTExtRemove() {}
 
 function changeLine(ev) {
   ev.preventDefault();

@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body onload="onInit()">
-    <header class="main-header flex space-between align-center">
-      <!-- <div class="main-headermain-layout"> -->
+    <div class="main-screen" onclick="onToggleMenu()"></div>
+
+    <header class="main-header main-layout flex space-between align-center">
       <div class="nav-logo">MEME-GEN</div>
-      <ul class="main-nav flex align-center clean-list">
+      <ul class="main-nav main-layout flex align-center clean-list">
         <il><a href="#" onclick="onPageToggle('editor')">Editor</a></il>
         <il><a href="#" onclick="onPageToggle('gallery')">Gallery</a></il>
         <il><a onclick="onPageToggle('about')" href="#">About</a></il>
@@ -21,18 +22,17 @@
           ></il
         >
       </ul>
-      <div class="btn-menu onclick="onToggleMenu()">☰</div>
-
+      <div class="btn-menu" onclick="onToggleMenu()">☰</div>
     </header>
 
     <!-- MAIN PAGE / GALLERY -->
 
-    <section class="gallery-container">
+    <section class="gallery-container main-layout">
       <h2 class="main-layout">Select a meme you would like to edit</h2>
       <div div class="galley-grid gallery-container main-layout"></div>
     </section>
 
-     <!-- EDITOER -->
+    <!-- EDITOER -->
 
     <div class="editor main-layout hide">
       <div class="box a canvas-container">
@@ -47,7 +47,7 @@
             autocomplete="off"
             placeholder="Write your text here"
             name="meme-text"
-            oninput="getText(this.value)"
+            oninput="getText(value)"
           />
 
           <div class="ctrl-btns">
@@ -73,27 +73,35 @@
             <button class="ctrl-btn smaller" onclick="changeFontSize(event,-1)">
               A-
             </button>
-            <button class="ctrl-btn-fill">
-              <input
-                class="input-color"
-                type="color"
-                oninput="onChangeFillColor(value)"
-              />
-            </button>
-            <button class="ctrl-btn-fill">
-              <input
-                class="input-color"
-                name="fill-color"
-                type="color"
-                oninput="setLineColor(value)"
-              />
-            </button>
-            <button class="ctrl-btn delet" onclick="onClearText()">
+            <button class="ctrl-btn delet" onclick="onRemoveText()">
               Delete
             </button>
           </div>
         </div>
-        <div class="box d font-editor"></div>
+        <div class="box d font-editor">
+          <button class="ctrl-btn-fill">
+            <input
+              class="input-color"
+              type="color"
+              onchange="onChangeFillColor(value)"
+            />
+          </button>
+          <button class="ctrl-btn-fill">
+            <input
+              class="input-color"
+              name="fill-color"
+              type="color"
+              onchange="setLineColor(value)"
+            />
+          </button>
+          <label for:"font-options">font:</label>
+          <select  class="font-options" name="font" id:"font" onchange="onChangeFont()">
+          <option value="impact">Impact</option>
+          <option value="ariel">Ariel</option>
+          <option value="lato">Lato</option>
+          <option value="lato-bold">Lato-Bold</option>
+          </select>
+        </div>
         <div class="box e">
           <a href="#" onclick="downloadCanvas(this)" download="myphoto"
             >Download</a
@@ -104,12 +112,13 @@
     <!-- ABOUT -->
 
     <!-- FOOTER -->
-    <footer class="main-footer">
-      <p>Chen Leiv</p>
+
+    <footer class="main-footer main-layout">
+      <div class="footer-logo flex align-center">© Chen Leiv</div>
     </footer>
-    <script src="js/meme.controller.js"></script>
-    <script src="js/services/meme.service.js"></script>
     <script src="js/services/gallery.service.js"></script>
+    <script src="js/services/meme.service.js"></script>
     <script src="js/services/utils.service.js"></script>
+    <script src="js/meme.controller.js"></script>
   </body>
 </html>

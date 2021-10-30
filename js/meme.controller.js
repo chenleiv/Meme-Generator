@@ -6,7 +6,7 @@ function onInit() {
   gCtx = gElCanvas.getContext('2d');
   gCtx.fillStyle = 'white';
   gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height);
-  onToggleMenu();
+
   addListeners();
   renderGallery();
   renderMeme();
@@ -78,8 +78,10 @@ function onChangeFillStroke(value) {
   editText('strokeColor', value);
   renderMeme();
 }
+function onChangeFont() {}
 
-function onClearCanvas() {
-  gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
-  // You may clear part of the canvas
+function onRemoveText() {
+  getTExtRemove();
+  renderGallery();
+  document.querySelector('.meme-text').value = '';
 }
