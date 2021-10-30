@@ -17,8 +17,11 @@ body {
   max-height: 100%;
 }
 
-.rtl {
-  direction: rtl;
+.lang {
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
 }
 
 /* LAYOUT */
@@ -59,6 +62,11 @@ body {
 /* MAIN CONTENT */
 /* IMGS */
 h2 {
+  font-size: 1.2em;
+  padding: 30px;
+}
+.rtl h2 {
+  direction: rtl;
   font-size: 1.2em;
 }
 

@@ -15,11 +15,14 @@
       <ul class="main-nav main-layout flex align-center clean-list">
         <il><a data-trans="edit" href="#" onclick="onPageToggle('editor')">Editor</a></il>
         <il><a data-trans="galerry" href="#" onclick="onPageToggle('gallery')">Gallery</a></il>
-        <il
-          ><a data-trans="lang" class="lang" value="he" onclick="onSetLang(this.value)"
-            >עברית</a
-          ></il
-        >
+       
+        <select class ="lang" onchange="onSetLang(this.value)">
+        
+          <option value="en">English</option>
+          <option value="he">עברית</option>
+     
+      </select>
+       
       </ul>
       <div class="btn-menu" onclick="onToggleMenu()">☰</div>
     </header>

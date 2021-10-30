@@ -66,6 +66,12 @@ function setLang(lang) {
 
 function onSetLang(lang) {
   setLang(lang);
+  var elBody = document.querySelector('body');
+  if (lang === 'he') {
+    elBody.classList.add('rtl');
+  } else {
+    elBody.classList.remove('rtl');
+  }
   doTrans();
   renderGallery();
 }

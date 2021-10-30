@@ -55,7 +55,17 @@ function drawText(text, x, y, idx) {
   gCtx.font = `${gMeme.lines[idx].size}px impact`;
   gCtx.fillText(text, x, y);
   gCtx.strokeText(text, x, y);
+  // drawTextBox(x - 215, y - 40, idx);
 }
+
+// function drawTextBox(x, y, idx) {
+//   var isSelected = gMeme.lines[idx].isSelected;
+//   gCtx.beginPath();
+//   gCtx.rect(x, y, gElCanvas.width - 30, 60);
+//   gCtx.lineDashOffset = 0;
+//   gCtx.strokeStyle = !isSelected ? 'white' : 'purple';
+//   gCtx.stroke();
+// }
 
 function getText(input) {
   renderMeme();
