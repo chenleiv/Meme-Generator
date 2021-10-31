@@ -10,6 +10,7 @@ function onInit() {
   addListeners();
   renderGallery();
   renderMeme();
+  renderKeyWords();
 }
 
 //
@@ -18,9 +19,26 @@ function onToggleMenu() {
   document.body.classList.toggle('menu-open');
 }
 
+function renderKeyWords() {
+  var keywords = getKeyWords();
+  var strHtml = ` <ul class="clean-list flex space-between">`;
+  keywords.forEach((word) => {
+    strHtml += `<li onclick="onSetFilter('${word}')">${word}</li>`;
+  });
+  strHtml += `</ul>`;
+  document.querySelector('.keywords').innerHTML = strHtml;
+}
+
+function onSetFilter(filterBy) {
+  console.log('filterBy', filterBy);
+  setFilter(filterBy);
+  renderGallery();
+}
+
 function renderGallery() {
   let strHtml = '';
-  const imgs = gImgs;
+  var imgs = getImgsForDisplay();
+  console.log('imgs', imgs);
   strHtml += imgs
     .map(
       (img) =>
@@ -31,15 +49,19 @@ function renderGallery() {
   console.log('gImgs', gImgs);
 }
 
-function renderMeme(url) {
+function renderMeme() {
   var img = new Image();
   img.src = `./img/${gMeme.selectedImgId}.png`; // url
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
-    drawText(gMeme.lines[0].txt, gMeme.lines[0].pos.x, gMeme.lines[0].pos.y, 0);
-    drawText(gMeme.lines[1].txt, gMeme.lines[1].pos.x, gMeme.lines[1].pos.y, 1);
-    drawText(gMeme.lines[2].txt, gMeme.lines[2].pos.x, gMeme.lines[2].pos.y, 2);
+    renderTxt();
   };
+}
+
+function renderTxt() {
+  gMeme.lines.forEach((line, idx) => {
+    drawText(line);
+  });
 }
 
 // function drawImg(id) {
@@ -72,14 +94,26 @@ function onPageToggle(page) {
 }
 
 function onChangeFillColor(value) {
-  editText('fill', value);
+  editText('color', value);
+  console.log(value);
   renderMeme();
 }
 
-function onChangeFont() {}
+// function onChangeFont() {}
 
 function onRemoveText() {
   getTExtRemove();
-  renderGallery();
+  renderMeme();
   document.querySelector('.meme-text').value = '';
+}
+function onSetLang(lang) {
+  setLang(lang);
+  var elBody = document.querySelector('body');
+  if (lang === 'he') {
+    elBody.classList.add('rtl');
+  } else {
+    elBody.classList.remove('rtl');
+  }
+  doTrans();
+  renderGallery();
 }
