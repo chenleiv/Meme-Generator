@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body onload="onInit()">
+
     <div class="main-screen" onclick="onToggleMenu()"></div>
 
     <header class="main-header main-layout flex space-between align-center">
@@ -30,8 +31,8 @@
     <!-- MAIN PAGE / GALLERY -->
     <!-- <section class="gallery-container main-layout"></section> -->
     <main>
-      <section class="gallery-container main-layout">
-      <h2 data-trans="hello-title" class="main-layout">Select a meme you would like to edit</h2>
+      <section class="gallery-container ">
+      <h2 data-trans="hello-title" >Select a meme you would like to edit</h2>
       <div class="filter-img">
         <form action="" onsubmit="onSetFilter(this.value)">
               <input class="filter-input" type="search" id="search" placeholder="Enter search keyword"             
@@ -40,93 +41,102 @@
 
               <button type="submit">search</button>
             </form>
-             
+            
+            <div class="keywords"></div>
           </div>
-          <div class="keywords"></div>
-          <div div class="galley-grid "></div>
+            <div div class="galley-grid "></div>
         </section>
     </main>
   
 
     <!-- EDITOER -->
 
-    <div class="editor main-layout hide">
-      <div class="box a canvas-container">
-        <canvas width="400" height="400"></canvas>
+    <section class="editor hide">
+      <div class="canvas-container flex">
+        <canvas class="canvas-container" width="450" height="450"></canvas>
       </div>
-      <div class="box b">
-        <div class="box c text-container">
+      <div class="editor-canvas ">
+        <div class="text-container">
           <input
-            class="meme-text"
+          class="meme-text"
             type="text"
-            value=""
             autocomplete="off"
             data-trans="text-title"
             placeholder="Write your text here"
             name="meme-text"
             oninput="getText(value)"
           />
-
+        </div>
           <div class="ctrl-btns">
-            <button onclick="changePosSides(event, -5)">
-              &#x21e0;
-              
-            </button>
-            <button onclick="changePosSides(event, 5)">
-              &#x21e2;
-            </button>
-            <button onclick="changeLine(event)">
-              &#x2195;
-            </button>
-            <button  onclick="addLine()">&#43;</button>
-            <button onclick="changePosUpDown(event, -5)">
-              &#x21e1;
-            </button>
-            <button  onclick="changePosUpDown(event, 5)">
-              &#x21e3;
-            </button>
-            <buttononclick="changeFontSize(event,1)">
-              A+
-            </buttononclick=>
-            <button onclick="changeFontSize(event,-1)">
-              A-
+            <button  onclick="addLine()">Add Line</button>
+            <button  onclick="changeLine(event)">
+             Switch
             </button>
           </div>
-          <button class="ctrl-btn fill">
-            <input
-            class="input-color"
-            type="color"
-            onchange="onChangeFillColor(value)"
-            />
+          <div class="ctrl-btns-tools">
+       
+          <!-- left -->
+          <button  onclick="changePosSides(event, -5)">
+            left
           </button>
-          <label data-trans="font-title" for:"font-options">Select a font:</label>
-          <button class="ctrl-btn font"><select class="font-options" name="font" id:"font" onchange="onChangeFont()">
-            <option value="impact">Impact</option>
-            <option value="ariel">Ariel</option>
-            <option value="lato">Lato</option>
-            <option value="lato-bold">Lato-Bold</option>
-          </select>
+          <!-- right -->
+          <button onclick="changePosSides(event, 5)">
+            right
+          </button>
+          
+          <!-- down -->
+          <button onclick="changePosUpDown(event, -5)">
+            down
+          </button>
+          <!-- up -->
+          <button  onclick="changePosUpDown(event, 5)">
+            up
+          </button>
+          <button onclick="changeFontSize(event,1)">
+            A+
+          </button>
+          <button onclick="changeFontSize(event,-1)">
+            A-
+          </button>
+        </div>
+        <div class="ctrl-btns-font">
+          <label type="text"> font:</label>
+        <select class="font-options" name="font" id:"font" onchange=" onChangeFont(this.value)">
+          <option value="impact">Impact</option>
+          <option value="eurofurence">Ariel</option>
+          <option value="lato">Lato</option>
+          <option value="lato-bold">Lato-Bold</option>
+        </select>
+        <label type="text"> color:</label>
+        <button>
+        <input
+        class="input-color"
+        type="color"
+        onchange="onChangeFillColor(value)"
+        />
+      </button>
+      <button onclick="onRemoveText()">
+        Delete
         </button>
-        <button class="ctrl-btn delete" onclick="onRemoveText()">
-          <img src="/icons/trush.png">
-        </button>
-        </div>
-        <div class="box d font-editor">
-        </div>
-        <div class="box e">
-          <a class="download" data-trans="download-title" href="#" onclick="downloadCanvas(this)" download="myphoto"
-            >Download</a
-          >
-        </div>
-      </div>
     </div>
+      
+        <div class="btn-user">
+          <button> <a class="download" data-trans="download-title" href="#" onclick="downloadCanvas(this)" download="myphoto"
+            >Download</a
+          ></button>
+
+          <button onclick="uploadImg()">Upload</button>
+          <button onclick="uploadImg()">Share</button>
+        </div>
+    </div>
+  </section>
     <!-- ABOUT -->
 
     <!-- FOOTER -->
 
-    <footer class="main-footer main-layout">
+    <!-- <footer class="main-footer main-layout">
       <div class="footer-logo flex align-center">© Chen Leiv</div>
-    </footer>
+    </footer> -->
 
 
 

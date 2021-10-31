@@ -34,7 +34,6 @@ var gTrans = {
   },
 };
 
-console.log('gTrans', gTrans);
 function getLang() {
   console.log('gCurrLang', gCurrLang);
   return gCurrLang;

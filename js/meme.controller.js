@@ -13,15 +13,10 @@ function onInit() {
   renderKeyWords();
 }
 
-//
-
-function onToggleMenu() {
-  document.body.classList.toggle('menu-open');
-}
-
+// render//
 function renderKeyWords() {
   var keywords = getKeyWords();
-  var strHtml = ` <ul class="clean-list flex space-between">`;
+  var strHtml = ` <ul class="key clean-list flex">`;
   keywords.forEach((word) => {
     strHtml += `<li onclick="onSetFilter('${word}')">${word}</li>`;
   });
@@ -29,16 +24,10 @@ function renderKeyWords() {
   document.querySelector('.keywords').innerHTML = strHtml;
 }
 
-function onSetFilter(filterBy) {
-  console.log('filterBy', filterBy);
-  setFilter(filterBy);
-  renderGallery();
-}
-
 function renderGallery() {
   let strHtml = '';
   var imgs = getImgsForDisplay();
-  console.log('imgs', imgs);
+
   strHtml += imgs
     .map(
       (img) =>
@@ -46,7 +35,6 @@ function renderGallery() {
     )
     .join('');
   document.querySelector('.galley-grid').innerHTML = strHtml;
-  console.log('gImgs', gImgs);
 }
 
 function renderMeme() {
@@ -64,13 +52,14 @@ function renderTxt() {
   });
 }
 
-// function drawImg(id) {
-
 function openEditor(imgId) {
-  console.log(imgId);
   gMeme.selectedImgId = imgId;
   onPageToggle();
   renderMeme();
+}
+
+function onToggleMenu() {
+  document.body.classList.toggle('menu-open');
 }
 
 function onPageToggle(page) {
@@ -93,19 +82,28 @@ function onPageToggle(page) {
   }
 }
 
-function onChangeFillColor(value) {
-  editText('color', value);
-  console.log(value);
-  renderMeme();
+// filter//
+function onSetFilter(filterBy) {
+  console.log('filterBy', filterBy);
+  setFilter(filterBy);
+  renderGallery();
 }
 
-// function onChangeFont() {}
+function onChangeFont(font) {
+  gMeme.lines[gMeme.gSelectedLineIdx].font = font;
+}
+function onChangeFillColor(value) {
+  editText('color', value);
+
+  renderMeme();
+}
 
 function onRemoveText() {
   getTExtRemove();
   renderMeme();
   document.querySelector('.meme-text').value = '';
 }
+
 function onSetLang(lang) {
   setLang(lang);
   var elBody = document.querySelector('body');
@@ -116,4 +114,34 @@ function onSetLang(lang) {
   }
   doTrans();
   renderGallery();
+}
+
+//drag line//
+function onDown(ev) {
+  const pos = getEvPos(ev);
+
+  gIsDrag = true;
+
+  gStartPos = pos;
+  document.body.style.cursor = 'grabbing';
+}
+
+function onMove(ev) {
+  // const line = getLine();
+  if (gIsDrag) {
+    const pos = getEvPos(ev);
+    // console.log('ev', ev);
+    // const dx = pos.x - gStartPos.x;
+    // const dy = pos.y - gStartPos.y;
+    // console.log('x', pos.x);
+    gStartPos = pos;
+    moveLine(pos);
+    renderMeme();
+  }
+}
+
+function onUp() {
+  gIsDrag = false;
+  // setLineDrag(false);
+  document.body.style.cursor = 'grab';
 }
