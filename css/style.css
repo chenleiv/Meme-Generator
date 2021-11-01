@@ -115,6 +115,10 @@ h2 {
   width: 5rem;
 }
 
+.filter-img ul {
+  gap: 20px;
+}
+
 .gallery-container {
   border-radius: 5px;
   display: flex;
