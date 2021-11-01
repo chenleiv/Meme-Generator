@@ -117,6 +117,7 @@ h2 {
 
 .filter-img ul {
   gap: 20px;
+  text-transform: capitalize;
 }
 
 .gallery-container {
