@@ -117,7 +117,6 @@ function changeLine(ev) {
 }
 
 function addLine() {
-  if (gMeme.lines.length > 2) return;
   document.querySelector('.meme-text').value = '';
   gMeme.selectedLineIdx++;
   const newLine = getEmptyLine();
