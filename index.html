@@ -28,6 +28,7 @@
       <div class="btn-menu" onclick="onToggleMenu()">☰</div>
     </header>
 
+    <!-- MAIN PAGE / GALLERY -->
 
     <main>
       <section class="gallery-container ">
@@ -44,7 +45,7 @@
         <div div class="galley-grid "></div>
       </section>
     </main>
-  
+ 
 
     <!-- EDITOER -->
 
@@ -118,24 +119,37 @@
     </div>
       
         <div class="btn-user">
-          <button> <a class="download" data-trans="download-title" href="#" onclick="downloadCanvas(this)" download="myphoto"
-            >Download</a
-          ></button>
-
-          <button onclick="uploadImg()">Upload</button>
-          <button onclick="uploadImg()">Share</button>
+          <div class="upload-container">
+            <input type="file" id="imageUpload" accept="image/*" style="display: none" onchange="handleImageUpload(event)">
+            <button onclick="document.getElementById('imageUpload').click()">Upload</button>
+          </div>
+          <button onclick="downloadImg()">Download</button>
+          <button onclick="shareImg()">Share</button>
         </div>
     </div>
   </section>
     <!-- ABOUT -->
 
     <!-- FOOTER -->
-
-    <!-- <footer class="main-footer main-layout">
-      <div class="footer-logo flex align-center">© Chen Leiv</div>
-    </footer> -->
-
-
+    <footer class="footer">
+      <div class="footer-content">
+          <div class="footer-section">
+              <h3>Meme Generator</h3>
+              <p>Create and share your favorite memes</p>
+          </div>
+          <div class="footer-section">
+              <h3>Quick Links</h3>
+              <ul>
+                  <li><a href="#" onclick="onGallery()">Gallery</a></li>
+              </ul>
+          </div>
+         
+          </div>
+      </div>
+      <div class="footer-bottom">
+          <p>&copy; 2024 Meme Generator. All rights reserved.</p>
+      </div>
+  </footer>
 
 
     <script src="js/services/gallery.service.js"></script>
@@ -143,5 +157,6 @@
     <script src="js/meme.controller.js"></script>
     <script src="js/services/utils.service.js"></script>
     <script src="js/services/i18n.service.js"></script>
+    <script src="https://kit.fontawesome.com/your-code.js"></script>
   </body>
 </html>
