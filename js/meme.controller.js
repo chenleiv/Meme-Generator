@@ -16,11 +16,11 @@ function onInit() {
 // render//
 function renderKeyWords() {
   var keywords = getKeyWords();
-  var strHtml = ` <ul class="key clean-list flex">`;
+  var strHtml = ` <div class="keywords">`;
   keywords.forEach((word) => {
-    strHtml += `<li onclick="onSetFilter('${word}')">${word}</li>`;
+    strHtml += `<span onclick="onSetFilter('${word}')">${word}</span>`;
   });
-  strHtml += `</ul>`;
+  strHtml += `</div>`;
   document.querySelector('.keywords').innerHTML = strHtml;
 }
 
@@ -83,10 +83,27 @@ function onPageToggle(page) {
 }
 
 // filter//
+function onSearch(event) {
+  event.preventDefault();
+  const searchInput = document.querySelector('.filter-input');
+  const searchValue = searchInput.value.trim();
+  onSetFilter(searchValue);
+}
+
 function onSetFilter(filterBy) {
   console.log('filterBy', filterBy);
   setFilter(filterBy);
   renderGallery();
+  
+  // Update selected state of keywords
+  const keywords = document.querySelectorAll('.keywords span');
+  keywords.forEach(keyword => {
+    if (keyword.textContent === filterBy) {
+      keyword.classList.add('selected');
+    } else {
+      keyword.classList.remove('selected');
+    }
+  });
 }
 
 function onChangeFont(font) {

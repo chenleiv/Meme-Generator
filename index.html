@@ -28,24 +28,21 @@
       <div class="btn-menu" onclick="onToggleMenu()">☰</div>
     </header>
 
-    <!-- MAIN PAGE / GALLERY -->
-    <!-- <section class="gallery-container main-layout"></section> -->
+
     <main>
       <section class="gallery-container ">
       <h2 data-trans="hello-title" >Select a meme you would like to edit</h2>
       <div class="filter-img">
-        <form action="" onsubmit="onSetFilter(this.value)">
-              <input class="filter-input" type="search" id="search" placeholder="Enter search keyword"             
-              autocomplete="off"
-              />
-
-              <button type="submit">search</button>
-            </form>
-            
-            <div class="keywords"></div>
-          </div>
-            <div div class="galley-grid "></div>
-        </section>
+        <form onsubmit="onSearch(event)">
+          <input class="filter-input" type="search" id="search" placeholder="Enter search keyword"             
+          autocomplete="off"
+          />
+          <button type="submit">search</button>
+        </form>
+        <div class="keywords"></div>
+      </div>
+        <div div class="galley-grid "></div>
+      </section>
     </main>
   
 
